@@ -55,7 +55,7 @@ spray_angle – spray angle in degrees\
 cdrv_24 - context-dependent run value, based on RE24 (http://tangotiger.com/index.php/site/article/statcast-lab-swing-take-and-a-primer-on-run-value) \
 cnrv_24 - context-neutral run value, based on RE24 \
 cdrv_288 - context-dependent run value, based on RE288 \
-cnrv_288 - context-neutral run value, based on RE288 \
+cnrv_288 - context-neutral run value, based on RE288
 ### Pitching Details
 release_speed – release speed of pitch in mph\
 effective_speed - derived speed based on the extension of the pitcher's release (NA for '08-'14) \
