@@ -32,7 +32,7 @@ is_last_pitch - was it the last pitch in the plate appearance\
 is_bip - was the ball put in play\
 is_stk - was the pitch a strike\
 pitch_type – the type of pitch derived from Statcast (CH - changeup; CU - curveball; EP - eephus; FA - fastball; FC - fastball (cutter); FF - fastball (4-seam); FO - forkball; FS - fastball (split finger); FT - fastball (2-seam); IN - intentional ball; KC - knuckle curve; KN - knuckleball; PO - pitchout; SC - screwball; SI - sinker; SL - slider; UN - unknown) \
-attack_region - zone location of the ball when it crosses the plate from the catcher's perspective (http://tangotiger.net/strikezone/zone%20chart.png) \
+attack_region - zone location of the ball when it crosses the plate from the catcher's perspective (see http://tangotiger.net/strikezone/zone%20chart.png) \
 plate_x - horizontal position of the ball when it crosses home plate from the catcher's perspective\
 plate_z - vertical position of the ball when it crosses home plate from the catcher's perspective\
 sz_top - top of the batter's strike zone set by the operator when the ball is halfway to the plate\
@@ -52,7 +52,7 @@ hc_x - hit coordiante X of batted ball\
 hc_y - hit coordiante Y of batted ball\
 hit_distance – projected hit distance of the batted ball in feet (NA for '08-'14) \
 spray_angle – spray angle in degrees\
-cdrv_24 - context-dependent run value, based on RE24 (http://tangotiger.com/index.php/site/article/statcast-lab-swing-take-and-a-primer-on-run-value) \
+cdrv_24 - context-dependent run value, based on RE24 (see http://tangotiger.com/index.php/site/article/statcast-lab-swing-take-and-a-primer-on-run-value) \
 cnrv_24 - context-neutral run value, based on RE24 \
 cdrv_288 - context-dependent run value, based on RE288 \
 cnrv_288 - context-neutral run value, based on RE288
