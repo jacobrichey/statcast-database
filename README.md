@@ -71,7 +71,7 @@ vy0 - the velocity of the pitch, in feet per second, in y-dimension, determined 
 vz0 - the velocity of the pitch, in feet per second, in z-dimension, determined at y=50 feet\
 ax - the acceleration of the pitch, in feet per second per second, in x-dimension, determined at y=50 feet\
 ay - the acceleration of the pitch, in feet per second per second, in y-dimension, determined at y=50 feet\
-az - the acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet\
+az - the acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet
 ### Runners and Defensive Alignment
 run_on_1b – id of runner on first pre-pitch\
 run_on_2b – id of runner on second pre-pitch\
@@ -88,4 +88,4 @@ fielder_7 – left fielder id (NA for '08-'14)\
 fielder_8 – centerfielder id (NA for '08-'14)\
 fielder_9 – right fielder id (NA for '08-'14)\
 if_fielding_alignment - infield fielding alignmeent at the time of the pitch (NA for '08-'14)\
-of_fielding_alignment - outfield fielding alignment at the time of the pitch (NA for '08-'14)\
+of_fielding_alignment - outfield fielding alignment at the time of the pitch (NA for '08-'14)
