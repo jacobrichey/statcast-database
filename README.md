@@ -35,6 +35,8 @@ pitch_type – the type of pitch derived from Statcast (CH - changeup; CU - curv
 attack_region - zone location of the ball when it crosses the plate from the catcher's perspective (see http://tangotiger.net/strikezone/zone%20chart.png) \
 plate_x - horizontal position of the ball when it crosses home plate from the catcher's perspective\
 plate_z - vertical position of the ball when it crosses home plate from the catcher's perspective\
+rel_plate_x - zone center at 0, with 1 denoting the strike zone perimeter\
+rel_plate_z - zone center at 0, with 1 denoting the strike zone perimeter (dependent on batter height) \
 sz_top - top of the batter's strike zone set by the operator when the ball is halfway to the plate\
 sz_bot - bottom of the batter's strike zone set by the operator when the ball is halfway to the plate
 ### Batting Details
