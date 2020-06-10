@@ -33,10 +33,10 @@ is_bip - was the ball put in play\
 is_stk - was the pitch a strike\
 pitch_type – the type of pitch derived from Statcast (CH - changeup; CU - curveball; EP - eephus; FA - fastball; FC - fastball (cutter); FF - fastball (4-seam); FO - forkball; FS - fastball (split finger); FT - fastball (2-seam); IN - intentional ball; KC - knuckle curve; KN - knuckleball; PO - pitchout; SC - screwball; SI - sinker; SL - slider; UN - unknown) \
 attack_region - zone location of the ball when it crosses the plate from the catcher's perspective (see http://tangotiger.net/strikezone/zone%20chart.png) \
-plate_x - horizontal position of the ball when it crosses home plate from the catcher's perspective\
-plate_z - vertical position of the ball when it crosses home plate from the catcher's perspective\
-sz_top - top of the batter's strike zone set by the operator when the ball is halfway to the plate\
-sz_bot - bottom of the batter's strike zone set by the operator when the ball is halfway to the plate\
+plate_x - horizontal position of the ball in feet when it crosses home plate from the catcher's perspective\
+plate_z - vertical position of the ball in feet when it crosses home plate from the catcher's perspective\
+sz_top - top of the batter's strike zone in feet set by the operator when the ball is halfway to the plate\
+sz_bot - bottom of the batter's strike zone set in feet by the operator when the ball is halfway to the plate\
 rel_plate_x - zone center at 0, with 1 denoting the strike zone perimeter\
 rel_plate_z - zone center at 0, with 1 denoting the strike zone perimeter (dependent on batter height)
 ### Batting Details
