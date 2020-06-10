@@ -53,10 +53,12 @@
 # SL - slider
 # UN - unknown
 # attack_region - zone location of the ball when it crosses the plate from the catcher's perspective (http://tangotiger.net/strikezone/zone%20chart.png)
-# plate_x – horizontal position of the ball when it crosses home plate from the catcher's perspective
-# plate_z – vertical position of the ball when it crosses home plate from the catcher's perspective
-# sz_top - top of the batter's strike zone set by the operator when the ball is halfway to the plate
-# sz_bot - bottom of the batter's strike zone set by the operator when the ball is halfway to the plate
+# plate_x – horizontal position of the ball in feet when it crosses home plate from the catcher's perspective
+# plate_z – vertical position of the ball in feet when it crosses home plate from the catcher's perspective
+# sz_top - top of the batter's strike zone in feet set by the operator when the ball is halfway to the plate
+# sz_bot - bottom of the batter's strike zone in feet set by the operator when the ball is halfway to the plate
+# rel_plate_x - zone center at 0, with 1 denoting the strike zone perimeter
+# rel_plate_z - zone center at 0, with 1 denoting the strike zone perimeter (dependent on batter height)
 # # Batting Details ----
 # bb_type - batted ball type (ground_ball, line_drive, fly_ball, popup)
 # estimated_ba_using_speedangle - estimated batting avg based on launch angle and exit velocity (NA for '08-'14)
@@ -116,7 +118,7 @@ library(tidyverse)
 
 setwd("~/data_personal/statcast_database")
 # from http://github.com/chadwickbureau/register
-register <- read_csv("data/chadwick_register.csv") %>%
+register <- read_csv("chadwick_register.csv") %>%
   filter(!is.na(key_mlbam)) %>%
   mutate(name = paste(name_first, name_last))
 
@@ -334,12 +336,13 @@ format_statcast <- function(df) {
     ungroup()
   
   df <- df %>%
-    mutate(plate_x = plate_x * 12,
-           plate_z = plate_z * 12,
+    mutate(rel_plate_x = plate_x / ((17/2 + 1.456) / 12),
+           rel_plate_z = (plate_z - (sz_bot - 1.456/12)) /
+             (sz_top - sz_bot + 1.456*2/12) * 2 - 1,
            attack_region = case_when(
-             abs(plate_x) < 6.7 & plate_z > 22 & plate_z < 38 ~ "Heart",
-             abs(plate_x) < 13.3 & plate_z > 14 & plate_z < 46 ~ "Shadow",
-             abs(plate_x) < 20 & plate_z > 14 & plate_z < 54 ~ "Chase",
+             abs(rel_plate_x) < 0.67 & abs(rel_plate_z) < 0.67 ~ "Heart",
+             abs(rel_plate_x) < 1.33 & abs(rel_plate_z) < 1.33 ~ "Shadow",
+             abs(rel_plate_x) < 2.00 & abs(rel_plate_z) < 2.00 ~ "Chase",
              TRUE ~ "Waste"),
            attack_region = ifelse(is.na(plate_x) | is.na(plate_z), NA, attack_region)) %>%
     select(gameid, game_year, game_date, game_type, home_team, vis_team, 
@@ -349,7 +352,7 @@ format_statcast <- function(df) {
            baseout_state_after, event_type, event_description, 
            pitch_description, balls, strikes, is_last_pitch, is_bip, is_stk, 
            pitch_type, attack_region, plate_x, plate_z, sz_top, sz_bot, 
-           bb_type, estimated_ba_using_speedangle, 
+           rel_plate_x, rel_plate_z, bb_type, estimated_ba_using_speedangle, 
            estimated_woba_using_speedangle, woba_value, woba_denom, 
            babip_value, iso_value, launch_speed, launch_angle,
            launch_speed_angle, hc_x, hc_y, hit_distance, spray_angle, cdrv_24, 
@@ -366,7 +369,5 @@ format_statcast <- function(df) {
 # 2019 example
 payload_statcast <- scrape_statcast(2019)
 statcast_2019 <- format_statcast(payload_statcast)
-write.csv(statcast_2019, "data/statcast_2019.csv", row.names = FALSE)
-
-
+write.csv(statcast_2019, "statcast_2019.csv", row.names = FALSE)
          
